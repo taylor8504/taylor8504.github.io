@@ -35,8 +35,7 @@
 </head>
 
   <body>
-    <!-- Archive Header -->
-<!-- Page Header -->
+    <!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
@@ -44,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">Blog Archives</p>
+          <p class="title">无标题文章</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -89,58 +88,54 @@
   </div>
 </header>
 
-<!-- Archive List -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
-        <div class="archive-item">
-  <a href="/2019/07/28/漏洞利用/" class="post-title">
-    无标题文章
-  </a>
-  <div class="date text-muted">Posted on 2019-07-28 20:26:49</div>
-</div>
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-07-28</span>
+            <span class="time">22:08:17</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <hr>
+<p>title: 漏洞利用<br>date: 2019-07-28 20:26:49</p>
+<h2 id="tag"><a href="#tag" class="headerlink" title=" tag  "></a> tag  </h2><h2 id="phpMyAdmin-4-8-1-本地文件包含漏洞利用"><a href="#phpMyAdmin-4-8-1-本地文件包含漏洞利用" class="headerlink" title="phpMyAdmin 4.8.1      本地文件包含漏洞利用"></a>phpMyAdmin 4.8.1      本地文件包含漏洞利用</h2><h3 id="该漏洞利用不要求root帐号，只需能够登录-phpMyAdmin-便能够利用。"><a href="#该漏洞利用不要求root帐号，只需能够登录-phpMyAdmin-便能够利用。" class="headerlink" title="该漏洞利用不要求root帐号，只需能够登录 phpMyAdmin 便能够利用。"></a>该漏洞利用不要求root帐号，只需能够登录 phpMyAdmin 便能够利用。</h3><ol>
+<li><h3 id="使用帐号-root-，密码-toor-登录-phpMyAdmin"><a href="#使用帐号-root-，密码-toor-登录-phpMyAdmin" class="headerlink" title="使用帐号 root ，密码 toor 登录 phpMyAdmin"></a><strong>使用帐号 root ，密码 toor 登录 phpMyAdmin</strong></h3><p><img src="https://s2.ax1x.com/2019/07/28/e1mlI1.png" alt="e1mlI1.png"></p>
+</li>
+<li><p><strong>点击顶部导航栏中的<code>SQL</code>按钮，执行SQL查询</strong>     </p>
+</li>
+</ol>
+<blockquote>
+<p><strong><em>select ``’<?php phpinfo();exit;?>‘</em></strong></p>
+</blockquote>
+<p><img src="https://s2.ax1x.com/2019/07/28/e1mHQU.png" alt="e1mHQU.png"></p>
+<ol start="3">
+<li><p><strong>获取自己的SESSION ID</strong></p>
+<p>你的 SESSION ID 为 Cookie 中的 <code>phpMyAdmin</code> 项。</p>
+<p><img src="https://s2.ax1x.com/2019/07/28/e1n1mQ.png" alt="e1n1mQ.png"></p>
+<p>这样对应的SESSION文件为<code>/var/lib/php/sessions/sess_你的SESSION ID</code>。</p>
+</li>
+<li><p><strong>包含SESSION文件，成功利用该漏洞</strong></p>
+<p><img src="https://s2.ax1x.com/2019/07/28/e1nW6O.png" alt="e1nW6O.png"></p>
+</li>
+</ol>
 
-      
-        <div class="archive-item">
-  <a href="/2019/07/28/渗透测试/" class="post-title">
-    渗透测试
-  </a>
-  <div class="date text-muted">Posted on 2019-07-28 16:41:48</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/07/28/article-title/" class="post-title">
-    article title
-  </a>
-  <div class="date text-muted">Posted on 2019-07-28 11:54:49</div>
-</div>
-
-      
-        <div class="archive-item">
-  <a href="/2019/07/24/hello-world/" class="post-title">
-    Hello World
-  </a>
-  <div class="date text-muted">Posted on 2019-07-24 12:39:28</div>
-</div>
-
-      
-
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- Pagination -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-md-10 col-md-offset-1">
-      <ul class="pagination">
-          
-          
-      </ul>
-    </div>
-  </div>
-</div>
+</article>
 
 
 
