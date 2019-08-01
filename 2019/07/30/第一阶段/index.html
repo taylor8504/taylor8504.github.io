@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="第一阶段">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">第一阶段</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-07-30</span>
+            <span class="time">22:10:46</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="第一阶段："><a href="#第一阶段：" class="headerlink" title="第一阶段："></a>第一阶段：</h2><h3 id="linux基本命令"><a href="#linux基本命令" class="headerlink" title="linux基本命令"></a><strong>linux基本命令</strong></h3><ul>
+<li>关机 重启 退出</li>
+<li>reboot    init 6     shutdown -r   重启 </li>
+<li>shutdown -h now     half    init 0   shutdown     poweroff   关机</li>
+<li>logout 注销用户   exit   退出控制台</li>
+<li>init 3   以纯文本模式启动 (无图形界面）</li>
+</ul>
+<h2 id="Ls-——list"><a href="#Ls-——list" class="headerlink" title="Ls ——list"></a><strong>Ls ——list</strong></h2><p>命令格式：<strong>ls</strong> [参数] [目录名]</p>
+<p>主要功能：列出目标目录中所有子目录和文件夹</p>
+<p>常用参数：</p>
+<p> <strong>-a</strong>  列出目录下的所有文件，包括以 . 开头的隐藏文件和文件夹</p>
+<p>  <strong>-l</strong>  列出文件的权限，所有者，文件大小等详细信息</p>
+<p>  <strong>-d</strong> 仅列出目录本身，而不是列出目录的文件数据</p>
+<p>  <strong>-h</strong> 将文件容量以轻易读的方式(GB，KB等)列出来</p>
+<p>  <strong>-R</strong> 连同子目录的内容一起（递归列出）</p>
+<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><p>命令格式：<strong>cd</strong> [参数] [目录]</p>
+<p>主要功能：用于切换当前目录到其他目录 </p>
+<p><strong>cd /usr/bin</strong>  跳转到 /usr/bin</p>
+<p><strong>cd ~</strong>   跳到自己的home目录下</p>
+<p><strong>cd ..</strong>   返回上一层目录 </p>
+<p><strong>cd /</strong>    切换到系统根目录</p>
+<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><p>主要功能：查看当前工作目录的完整路径</p>
+<hr>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a><strong>cat</strong></h2><p>查看文件内容           <strong>-n</strong> 显示每行的行号</p>
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><p><strong>-name</strong> 查找具有指定文件名的文件</p>
+<p><strong>-perm</strong>  查找具有指定权限的文件</p>
+<p> <strong>find /demo -perm 755</strong>  在demo目录下查找755权限的文件</p>
+<p> <strong>find /etc -name “*.conf”</strong> 在etc下查找所有文件后缀为conf的文件</p>
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>查找所有文件中的某些字符串  可使用正则表达式</p>
+<p><strong>grep ‘hello’ .txt</strong>   在1.txt中查找hello</p>
+<p><strong>grep -i</strong>  使他不区分大小写</p>
+<p><strong>ls /etc | grep ‘pa’</strong>  在etc中查找含有pa的文件</p>
+<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>命令格式：<strong>tar</strong> [参数] [文件]</p>
+<p>常用参数：<strong>- c</strong> 建立新的压缩文件</p>
+<p><strong>-x</strong>   从压缩文件中提取文件</p>
+<p><strong>-z</strong>   支持gzip解压文件</p>
+<p><strong>-v</strong>  显示操作过程</p>
+<p><strong>-f</strong>  指定压缩文件</p>
+<p>解压通常用  <strong>-zxvf</strong>          打包压缩通常用   <strong>-zcvf</strong></p>
+<h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><p>命令格式：touch [参数] [文件]<br>主要功能：创建文件更改文件时间(当前文件夹)<br>常用参数：<br><strong>-t</strong> 使用指定的日期时间，而非现在的时间<br>命令示例：</p>
+<p><strong>touch 1.txt</strong>      创建1.txt文件</p>
+<p><strong>touch -t 1.txt</strong></p>
+<h2 id="mkdir-—-Make-Directory"><a href="#mkdir-—-Make-Directory" class="headerlink" title="mkdir — Make Directory"></a><strong>mkdir — Make Directory</strong></h2><p>命令格式：mkdir [参数] [目录]<br>主要功能：在指定位置创建指定的文件夹或目录</p>
+<p>常用参数：<br>    <strong>-p</strong> ：自动逐级建立文件夹</p>
+<h2 id="Mv——move"><a href="#Mv——move" class="headerlink" title="Mv——move"></a><strong>Mv——move</strong></h2><p>命令格式：<strong>mv</strong> [参数] [源文件或目录] [目标文件或目录]<br>主要功能：将文件重命名或将其移至一个新的目录中<br>常用参数：<br><strong>-b</strong> ：若需覆盖文件，则覆盖前先行备份。<br><strong>-f</strong> ：如果目标文件已经存在，不会询问而直接覆盖；</p>
+<p>*<em>Mv 1.txt 2.log *</em> 将1.txt重命名为2.log</p>
+<p><strong>Mv 1.txt /etc</strong>  将1.tx t移动到/etc目录</p>
+<p><strong>more</strong>查看内容较多的文件   按q停止显示</p>
+<h2 id="less"><a href="#less" class="headerlink" title="less"></a><strong>less</strong></h2><p>命令格式：less [参数] [文件]<br>主要功能：按页来翻看文件的内容<br>常用参数：<br><strong>-m</strong> 显示类似more命令的百分比<br><strong>-N</strong> 显示每行的行号<br><strong>-o</strong> 保存输出的内容</p>
+<p>less用法和more类似，但可以利用上下键卷动文件</p>
+<h2 id="cp-—Copy"><a href="#cp-—Copy" class="headerlink" title="cp —Copy"></a><strong>cp —Copy</strong></h2><p>将源文件复制至目标文件，或将多个源文件复制至目标目录<br><strong>-R</strong> ：复制目录及目录内的所有项目</p>
+<p>*<em>cp -r ./ *</em> 指定目录或文件 .          最后的点代表复制当前目录</p>
+<p><strong>cp demo /etc</strong>       #复制demo.txt文件到/etc目录</p>
+<p><strong>cp -R /demo /opt</strong>   #复制/demo目录下的所有项目到/opt目录下</p>
+<h2 id="whereis-ls"><a href="#whereis-ls" class="headerlink" title="*whereis ls *"></a>*<em>whereis ls *</em></h2><p>查找某个命令或程序所在位置</p>
+<p><strong>-b</strong> 定位可执行文件</p>
+<p><strong>-s</strong>定位源代码文件</p>
+<h2 id="Which"><a href="#Which" class="headerlink" title="Which"></a><strong>Which</strong></h2><p>搜索PATH变量中某个系统命令的位置</p>
+<p><strong>which pwd</strong> #搜索pwd命令所在路径</p>
+<h2 id="Ping"><a href="#Ping" class="headerlink" title="Ping"></a><strong>Ping</strong></h2><p>Linux ping命令用于检测主机</p>
+<p>Ping -c 10 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>     ping百度10次</p>
+<h2 id="Ifconfig"><a href="#Ifconfig" class="headerlink" title="Ifconfig"></a><strong>Ifconfig</strong></h2><p><strong>查看配置网络设备</strong></p>
+<p><strong>-up</strong> 启动指定网络设备/网卡<br><strong>-down</strong> 关闭指定网络设备/网卡<br><strong>-a</strong> 显示全部接口信息</p>
+<p><strong>ifconfig eth0 up</strong> 开启网卡eth0</p>
+<h2 id="Chown"><a href="#Chown" class="headerlink" title="Chown"></a><strong>Chown</strong></h2><p>改变文件的拥有者和群组</p>
+<p><strong>-R</strong> 处理指定目录以及其子目录下的所有文件</p>
+<p><strong>Chown admin：group 1.txt</strong> 将1.txt的用户拥有者改为admin，用户组为group</p>
+<h2 id="Chmod"><a href="#Chmod" class="headerlink" title="Chmod"></a><strong>Chmod</strong></h2><p><strong>-R</strong> 处理指定目录以及其子目录下的所有文件</p>
+<p>权限范围</p>
+<p><strong>u</strong> ：目录或者文件的当前的用户<br><strong>g</strong> ：目录或者文件的当前的群组<br><strong>o</strong> ：除了目录或者文件的当前用户或群组之外的用户或者群组<br><strong>a</strong> ：所有的用户及群组</p>
+<p><strong>Chmod a+x 1.txt</strong> 将1.txt文件所有的用户及群组增加执行权限</p>
+<h2 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a><strong>jobs</strong></h2><p>主要功能：查看当前正在运行的任务</p>
+<p>jobs命令只看当前终端生效的，关闭终端后，在另一个终端jobs已经无法看到后台跑得程序了，此时利用ps（进程查看命令）</p>
+<h2 id="bg"><a href="#bg" class="headerlink" title="bg"></a><strong>bg</strong></h2><p>将指定作业放到后台执行</p>
+<p><strong>bg %1</strong>  不带%时默认最后一个进程</p>
+<h2 id="fg"><a href="#fg" class="headerlink" title="fg"></a><strong>fg</strong></h2><p>将指定作业放到前台执行</p>
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a><strong>PS</strong></h2><p>显示当前进程状态 </p>
+<p><strong>a</strong> 显示同意终端下的所有进程<br><strong>u</strong> 指定用户的所有进程</p>
+<p><strong>ps -ef</strong>  显示所有进程</p>
+<p><strong>ps -aux|grep chat.js</strong>    将ps命令和grep结合</p>
+<p>以下这条命令是检查java 进程是否存在：<strong>ps -ef |grep java</strong></p>
+<p><strong>a</strong>: 显示所有程序</p>
+<p><strong>u</strong>: 以用户为主的格式来显示</p>
+<p><strong>x</strong>: 显示所有程序，不以终端机来区分</p>
+<h2 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a><strong>useradd</strong></h2><p>建立新用户</p>
+<p>​    <strong>-d</strong> 指定用户登入时的启始目录<br>​    <strong>-g</strong> 指定用户所属群组<br>​    <strong>-m</strong> 自动建立用户的登入目录<br>​    <strong>-M</strong> 不要自动建立用户的登入目录<br>​    <strong>-u</strong> 指定用户ID<br>​    <strong>-r</strong> 建立系统账号<br>​    <strong>-s</strong> 指定用户登录后所使用的Shell</p>
+<p>​    <strong>useradd -g username groupname</strong> #为添加的用户指定相应的用户组</p>
+<h2 id="Userdel"><a href="#Userdel" class="headerlink" title="Userdel"></a><strong>Userdel</strong></h2><p>用于删除账号</p>
+<p><strong>-r</strong>  删除用户登入目录及目录中所有文件</p>
+<h2 id="Groupdel"><a href="#Groupdel" class="headerlink" title="Groupdel"></a><strong>Groupdel</strong></h2><p>​    删除用户组</p>
+<p>​    <strong>groupadd -g 101 group2</strong>    指定在GID101中添加用户组</p>
+<p>​    <strong>groupmod  -g</strong> 修改既有的GID -n修改既有的用户组名称</p>
+<h2 id="Passwd"><a href="#Passwd" class="headerlink" title="Passwd"></a><strong>Passwd</strong></h2><p>用来更改使用者的密码</p>
+<p>​    <strong>-d</strong> 删除密码<br>​    <strong>-f</strong> 强制执行<br>​    <strong>-l</strong> 停止账号使用  账号禁用  shadow中的！！双感叹号<br>​    <strong>-u</strong> 启动停止账号   解锁账号<br>​    <strong>-g</strong> 修改群组密码</p>
+<p>​    <strong>-S</strong> 显示用户密码</p>
+<h2 id="Newgrp"><a href="#Newgrp" class="headerlink" title="Newgrp"></a><strong>Newgrp</strong></h2><p>​    用于登入另一个群组</p>
+<p>​    <strong>newgrp root</strong> 改变当前用户群组为root组</p>
+<h2 id="Usermod"><a href="#Usermod" class="headerlink" title="Usermod"></a><strong>Usermod</strong></h2><p>​    修改用户账号属性</p>
+<p>​    <strong>-d</strong>  修改用户登录时的目录<br>​    <strong>-g</strong>  修改用户所属的群组</p>
+<p>​    <strong>-G *<em>修改用户所属的附加群组<br>​    *</em>-l</strong>  修改账户名称<br>​    <strong>-u</strong> 修改用户ID</p>
+<p>​    <strong>-L</strong> 锁定账号</p>
+<p>​    <strong>-U</strong> 解除密码锁定</p>
+<p>​    <strong>usermod -G root bbb</strong>  将用户bbb加到root用户组</p>
+<h2 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a><strong>groupmod</strong></h2><p>​    修改用户组名</p>
+<p>​    <strong>-n</strong> 设置欲使用的群组名称</p>
+<p>​    <strong>groupmod -n group regroup</strong>  重命名群组为regroup</p>
+<h2 id="Rm"><a href="#Rm" class="headerlink" title="Rm"></a><strong>Rm</strong></h2><p>​    删除一个目录中的一个或多个文件或目录<br>​    <strong>-f</strong>  强制删除，不会出现警告消息<br>​    <strong>-r</strong>  递归删除，常用于目录删除<br>​    <strong>-v</strong>  详细显示进行的步骤</p>
+<p>​    <strong>rm</strong>  删除文件                 </p>
+<p>​    <strong>rmdir</strong>  删除文件夹   <strong>-p</strong> 为逐级删除</p>
+<p><strong>其他</strong></p>
+<p><strong>head</strong> 显示文件的前几行</p>
+<p><strong>tail</strong> 显示文件的后几行 动态显示</p>
+<p><strong>ctrl +z</strong> 将正在执行的命令放到后台，并暂停</p>
+<p><strong>ctrl +x</strong> 后台运行</p>
+<p><strong>ctrl +d</strong> 停止</p>
+<p><strong>bash        .sh</strong>后缀的是脚本命令文件</p>
+<p>boot文件是linux所有的内核</p>
+<p><strong>etc</strong> 是配置文件</p>
+<p><strong>home</strong>是用户文件</p>
+<p><strong>bin</strong>存放命令，如sudo</p>
+<p><strong>mnt</strong>里默认挂载软驱</p>
+<p>#是root用户</p>
+<p><strong>$</strong>为普通用户</p>
+<p>|管道符，连接下一个命令</p>
+<p><strong>**</strong>代表平方</p>
+<p><strong>||</strong>或门</p>
+<p><strong>&amp;&amp;  and</strong></p>
+<p><strong>&amp;</strong>后台工作符号</p>
+<p>&gt;&gt;输出重定向</p>
+<p>&lt;&lt;读取</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
