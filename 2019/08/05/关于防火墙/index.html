@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="关于防火墙">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Taylor">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Taylor" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Taylor</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">关于防火墙</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-05</span>
+            <span class="time">21:39:24</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a><strong>防火墙</strong></h2><p>1.防火墙功能：fifilter功能是防火墙一个重要功能，它定义数据通过是允许或者不允许fifilter控制数据类型分为两类：<strong>INPUT</strong>和<strong>OUTPUT</strong></p>
+<p>2.Iptables命令讲解</p>
+<p><strong>-A</strong> 追加 </p>
+<p><strong>-p</strong> 指定协议类型 </p>
+<p><strong>tcp通过dport指定目标端口，sport指定源端口</strong> </p>
+<p><strong>udp通tcp</strong> </p>
+<p> <strong>icmp通过–icmp-type指定类型，0是响应类型的数据包，8是请求类型的包</strong> </p>
+<p><strong>-m</strong> 表示启动扩展功能 </p>
+<p>一般和<strong>-p</strong>配合，-p指定类型后，通过<strong>-m</strong>打开此类型的扩展功能 </p>
+<p><strong>-j</strong> 指定如何进行处理<strong>DROP，REJECT，ACCEPT</strong>/丢弃，拒绝，通过 </p>
+<p><strong>iptables -A INPUT/OUTPUT -j DROP/REJECT/ACCEPT</strong></p>
+<p>编辑iptables的配置文件</p>
+<p>通过编辑文件可以直接修改iptables规则，编辑文件，写入指定规则</p>
+<p><strong>-A</strong> INPUT <strong>-m</strong> state <strong>–state</strong> ESTABLISHED, RELATED <strong>-j</strong> ACCEPT </p>
+<p><strong>-A</strong> INPUT <strong>-p</strong> icmp <strong>-j</strong> ACCEPT</p>
+<p> <strong>-A</strong> INPUT <strong>-i</strong> lo <strong>-j</strong> ACCEPT </p>
+<p><strong>-A</strong> INPUT <strong>-m</strong> state –state NEW <strong>-m</strong> tcp <strong>-p</strong> tcp -<strong>-dport</strong> 22 <strong>-j</strong> ACCEPT </p>
+<p><strong>-A</strong> INPUT <strong>-j</strong> REJECT <strong>–reject-with</strong> icmp-host-prohibited </p>
+<p><strong>-A</strong> FORWARD <strong>-j</strong> REJECT <strong>–reject-with</strong> icmp-host-prohibited</p>
+<p>查看现有规则 </p>
+<p><strong>iptables -nvL</strong> </p>
+<p>添加80端口通过的规则 </p>
+<p>firewallc-cmd –zone=public –add-port=80/tcp –permanent </p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"><strong>drop</strong></th>
+<th align="center"><strong>默认丢弃所有包</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>–zone</strong></td>
+<td align="center"><strong>block</strong></td>
+<td align="center"><strong>拒绝所有外部连接，允许内部发起连接</strong></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"><strong>public</strong></td>
+<td align="center"><strong>指定外部连接可以进入</strong></td>
+</tr>
+</tbody></table>
+<p><strong>–add-port</strong>               指定添加端口 <strong>80/tcp 53/udp</strong></p>
+<p><strong>–add-service</strong> 指定常见服务 <strong>http https mysql mssql ssh</strong></p>
+<p><strong>–permanent</strong> 永久生效</p>
+<p>删除80端口通过的规则</p>
+<p>firewall-cmd –zone=public –remove-port=80/tcp –permanent </p>
+<p><strong>–remove-port</strong> 指定删除端口</p>
+<p><strong>–remove-service</strong> 指定删除服务</p>
+<p>防火墙更新规则 </p>
+<p><strong>firewall-cmd –reload</strong> </p>
+<p>防火墙显示所有规则 </p>
+<p><strong>firewall-cmd –list-all</strong> </p>
+<p>关闭防火墙 </p>
+<p><strong>systemctl stop firewalld</strong> </p>
+<p>查看防火墙状态 </p>
+<p><strong>systemctl status firewalld</strong> </p>
+<p>启动防火墙 </p>
+<p><strong>systemctl start firewalld</strong></p>
+<p>临时加立即生效，–reload后失效，–pernament必须，–reload后才失效</p>
+<p><img src="https://s2.ax1x.com/2019/08/05/eR3mSf.jpg" alt="eR3mSf.jpg"><br><img src="https://s2.ax1x.com/2019/08/05/eR3ZfP.jpg" alt="eR3ZfP.jpg"><br><img src="https://s2.ax1x.com/2019/08/05/eR3nl8.jpg" alt="eR3nl8.jpg"><br><img src="https://s2.ax1x.com/2019/08/05/eR3VYt.jpg" alt="eR3VYt.jpg"></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
