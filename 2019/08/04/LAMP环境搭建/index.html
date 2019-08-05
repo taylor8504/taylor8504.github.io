@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="搭建lamp环境">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Taylor">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Taylor" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Taylor</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">搭建lamp环境</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-04</span>
+            <span class="time">22:33:06</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="CentOS7搭建apache-nginx、mysql、php、phpmyadmin环境"><a href="#CentOS7搭建apache-nginx、mysql、php、phpmyadmin环境" class="headerlink" title="CentOS7搭建apache/nginx、mysql、php、phpmyadmin环境"></a><strong>CentOS7搭建apache/nginx、mysql、php、phpmyadmin环境</strong></h2><h3 id="1-安装apache或nginx服务器"><a href="#1-安装apache或nginx服务器" class="headerlink" title="1.安装apache或nginx服务器"></a><strong>1.安装apache或nginx服务器</strong></h3><p><strong>apache</strong></p>
+<p>1.安装apache服务器，-y表示后面的提示全部都通过<br><strong>yum install httpd -y</strong></p>
+<p>2.启动apache服务器<br><strong>systemctl start httpd</strong><br>其他常用命令<br>重启apache服务器<br><strong>systemctl restart httpd</strong><br>关闭apache服务器<br><strong>systemctl stop httpd</strong></p>
+<p>3.使apache服务器开机自启<br><strong>systemctl enable httpd.service</strong></p>
+<p>4.关闭SELINUX<br><strong>vi /etc/selinux/config</strong><br>注释掉如下两句，添加最后一项<br><strong>#SELINUX=enforcing //#</strong>注释掉<br><strong>#SELINUXTYPE=targeted //#</strong>注释掉<br><strong>SELINUX=disabled //#</strong>增加<br><strong>:wq!</strong> 保存退出<br>输入如下命令<br><strong>setenforce 0 //#</strong>使配置立即生效</p>
+<p><strong>nginx</strong></p>
+<p>1.安装epel仓库<br><strong>yum install epel-release -y</strong> </p>
+<p>2.安装nginx服务器<br><strong>yum install nginx -y</strong></p>
+<p>3启动nginx服务<br><strong>systemctl start nginx</strong></p>
+<p>4.使nginx服务开机自启<br><strong>systemctl enable nginx</strong></p>
+<p>注意事项：<br>1.nginx默认的web根目录是/usr/share/nginx/html<br>2.如果想修改nginx的web根目录，使用vim编辑/etc/nginx/nginx.conf，修改root=你想要的目录<br>vi /etc/nginx/nginx.conf  编辑nginx的配置文件<br>/root   搜索root关键字<br>root=/web/www  修改为你想要设为web根目录的路径</p>
+<h3 id="2-安装mysql数据库"><a href="#2-安装mysql数据库" class="headerlink" title="2.安装mysql数据库"></a><strong>2.安装mysql数据库</strong></h3><p>1.安装mariadb（mysql）数据库<br><strong>yum install mariadb mariadb-server -y</strong></p>
+<p>2.启动mariadb服务<br><strong>systemctl start mariadb</strong><br>其他命令<br>重启mariadb服务<br><strong>systemctl restart mariadb</strong><br>停止mariadb服务<br><strong>systemctl stop mariadb</strong></p>
+<p>3.使mariadb服务开机自启<br><strong>systemctl enable mariadb</strong></p>
+<hr>
+<p>配置mariadb数据库</p>
+<p>1.输入这个命令开始配置<br><strong>mysql_secure_installation</strong></p>
+<p>2.会提示你输入当前的root密码，如果没有设置过，就直接回车<br><strong>Enter current password for root (enter for none):</strong></p>
+<p>3.提示是否设置root密码，输入y，回车<br><strong>Set root password? [Y/n]</strong></p>
+<p>4.输入root密码<br><strong>New password:</strong> </p>
+<p>5.确认root密码<br><strong>Re-enter new password:</strong></p>
+<p>6.移除匿名用户，输入y，回车<br><strong>Remove anonymous users? [Y/n]</strong></p>
+<p>7.禁用远程root用户登录，这个看个人需求，如果你想在远程连接mysql，你就输入n，回车；如果为了安全考虑，不允许的话，输入y，回车<br><strong>Disallow root login remotely? [Y/n]</strong></p>
+<p>8.是否移除test数据库，不想要的话，输入y，回车<br><strong>Remove test database and access to it? [Y/n]</strong></p>
+<p>9.刷新权限、表，输入y，回车</p>
+<h3 id="3-安装php环境"><a href="#3-安装php环境" class="headerlink" title="3.安装php环境"></a><strong>3.安装php环境</strong></h3><p>1.安装php及其扩展，默认安装的是php5.4<br><strong>yum install php php-mysql php-gd libjpeg* php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-bcmath php-mhash -y</strong></p>
+<p>2.如果想升级php到5.6/7.0<br>2.1首先需要升级软件仓库，依次执行下面2个命令<br> <strong>rpm -Uvh <a href="https://mirror.webtatic.com/yum/el7/epel-release.rpm" target="_blank" rel="noopener">https://mirror.webtatic.com/yum/el7/epel-release.rpm</a></strong><br> <strong>rpm -Uvh <a href="https://mirror.webtatic.com/yum/el7/webtatic-release.rpm" target="_blank" rel="noopener">https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</a></strong></p>
+<p>2.2删除旧的php<br><strong>yum remove php-common -y</strong><br>2.3安装所需要的版本，5.6版本，<br><strong>yum install php56w php56w-opcache php56w-xml php56w-mcrypt php56w-gd php56w-devel php56w-mysql php56w-intl php56w-mbstring -y</strong><br>2.3安装所需要的版本，7.0版本<br><strong>yum install php70w php70w-opcache php70w-xml php70w-mcrypt php70w-gd php70w-devel php70w-mysql php70w-intl php70w-mbstring -y</strong></p>
+<p>3.检查php是否安装成功<br><strong>php -v</strong> //可以看到自己安装的php版本信息</p>
+<p>4.重启服务器</p>
+<p><strong>systemctl restart httpd</strong></p>
+<h3 id="4-安装phpmyadmin数据库管理系统"><a href="#4-安装phpmyadmin数据库管理系统" class="headerlink" title="4.安装phpmyadmin数据库管理系统"></a><strong>4.安装phpmyadmin数据库管理系统</strong></h3><p>1.下载phpmyadmin包<br><strong>wget <a href="https://files.phpmyadmin.net/phpMyAdmin/4.7.0/phpMyAdmin-4.7.0-all-languages.zip" target="_blank" rel="noopener">https://files.phpmyadmin.net/phpMyAdmin/4.7.0/phpMyAdmin-4.7.0-all-languages.zip</a></strong></p>
+<p>2.解压phpmyadmin包<br><strong>unzip phpMyAdmin-4.7.0-all-languages.zip</strong><br>2.如果没有安装unzip和zip，请先安装，然后再执行上面的操作<br>yum install zip unzip -y</p>
+<p>3.将解压后的phpmyadmin移动到/var/www/html/phpmyadmin文件夹下<br>3.1首先创建phpmyadmin文件夹<br><strong>mkdir /var/www/html/phpmyadmin</strong><br>3.2移动文件<br><strong>mv phpMyAdmin-4.7.0-all-languages/* /var/www/html/phpmyadmin/</strong></p>
+<p>4.重启apache服务器</p>
+<p><strong><em>systemctl restart httpd</em></strong></p>
+<p>注意：如果浏览器打不开这个页面，提示“拒绝了您的请求”，说明是防火墙开启了，没有开放这个端口。</p>
+<p><strong>firewall-cmd –zone=public –list-ports</strong> //查看所有开放的端口<br>//如果没有出现80/tcp，则说明http的端口没有开放，<br><strong>firewall-cmd –zone=public –add-port=80/tcp –permanent</strong> //开放80端口</p>
+<p><strong>firewall-cmd –reload</strong> <em>//重新加载防火墙规则</em></p>
+<h3 id="DVWA安装"><a href="#DVWA安装" class="headerlink" title="DVWA安装"></a><strong>DVWA安装</strong></h3><p>从官网复制下载连接，使用wget安装<br><strong>wget <a href="https://github.com/ethicalhack3r/DVWA/archive/master.zip" target="_blank" rel="noopener">https://github.com/ethicalhack3r/DVWA/archive/master.zip</a></strong><br>如果没有wget<br><strong>yum install wget -y</strong><br>解压到/var/www/html<br>修改文件名为dvwa<br>修改权限<strong>chown -R apache:apache dvwa</strong><br>进入dvwa/config文件夹中，把config.inc.php.dist改名为config.inc.php<br>然后可以备份一份config.inc.php<br>回到根目录 cd /etc/php.ini<br>末行模式查找/allow_<br>修改这两个为On<br><strong>allow_url_fopen = On</strong><br><strong>allow_url_include = On</strong></p>
+<p>进入/var/www/html/dvwa/config文件夹下，修改<strong>config.inc.php</strong></p>
+<p><strong>$_DVWA = array();<br>$_DVWA[ ‘db_server’ ]   = ‘127.0.0.1’;</strong><br><strong>$_DVWA[ ‘db_database’ ] = ‘dvwa’;<br>$_DVWA[ ‘db_user’ ]     = ‘’;</strong><br><strong>$_DVWA[ ‘db_password’ ] = ‘’;</strong><br>最后两行修改为mysql中root用户的密码，<br>填写公钥和私钥。<br><strong>public_key: 6LePqhAUAAAAAH6Bn2okO9-8G-zNw46PNhotV4Q6</strong><br><strong>private_key: 6LePqhAUAAAAAMVqhBbFr1NVA9H13FkyfAgBeZYx</strong><br>保存后退出<br>查看网页，账号为amdin 密码password</p>
+<h3 id="搭建sqli-labs"><a href="#搭建sqli-labs" class="headerlink" title="搭建sqli-labs"></a><strong>搭建sqli-labs</strong></h3><p>网站<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a><br>先进入/var/www/html<br>然后下载<strong>git clone <a href="https://github.com/Audi-1/sqli-labs.git" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs.git</a> sqli-labs</strong><br>修改权限<strong>chown -R apache:apache sqli-labs</strong><br>修改mysql账户密码为自己设置的（我这里设置的是root，password）<br><strong>vi /sql-connections/db-creds.inc</strong><br><strong>$dbuser =’root’;</strong><br><strong>$dbpass =’password’;</strong><br>重启服务<strong>systemctl restart httpd</strong></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

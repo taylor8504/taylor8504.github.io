@@ -8,20 +8,20 @@
   <meta name="description" content>
   <meta name="author" content="John Doe">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="article title">
+  <meta property="og:title" content="配置网卡">
   <meta property="og:description" content>
-  <meta property="og:site_name" content="Hexo">
+  <meta property="og:site_name" content="Taylor">
   <meta property="og:type" content="article">
   <meta property="og:image" content="http://yoursite.com">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Taylor" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
 
   <!-- Site Title -->
-  <title>Hexo</title>
+  <title>Taylor</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">article title</p>
+          <p class="title">配置网卡</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -99,8 +99,8 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2019-07-28</span>
-            <span class="time">08:53:59</span>
+            <span class="date">2019-08-04</span>
+            <span class="time">22:33:06</span>
           </span>
           
         </div>
@@ -108,7 +108,25 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          
+          <h2 id="CentOS7网络配置和修改网卡名称及常用服务管理命令"><a href="#CentOS7网络配置和修改网卡名称及常用服务管理命令" class="headerlink" title="CentOS7网络配置和修改网卡名称及常用服务管理命令"></a><strong>CentOS7网络配置和修改网卡名称及常用服务管理命令</strong></h2><h3 id="1-设置IP地址和网关及DNS"><a href="#1-设置IP地址和网关及DNS" class="headerlink" title="1.设置IP地址和网关及DNS"></a><strong>1.设置IP地址和网关及DNS</strong></h3><p><a href="http://www.linuxidc.com/topicnews.aspx?tid=14" target="_blank" rel="noopener">CentOS</a>7里面的网卡名称是‘enoxxxxxx’的格式，en代表的是enthernet以太网，o代表onboard内置，编号唯一性，网卡名称可以改动，centos服务管理主要命令是systemctl，，centos7的服务放在/usr/lib/systemd/system下，centos7系统中systemctl管理工具整合了chkconfig和service于一体。</p>
+<h3 id="2-网络配置文件目录"><a href="#2-网络配置文件目录" class="headerlink" title="2.网络配置文件目录"></a><strong>2.网络配置文件目录</strong></h3><p><img src="https://s2.ax1x.com/2019/08/04/eyvwMn.png" alt="eyvwMn.png"></p>
+<p>我们以改为静态为例 配置网络文件ifcfg-eno16777736，设置为none</p>
+<p><img src="https://s2.ax1x.com/2019/08/04/eyvLzd.png" alt="eyvLzd.png"></p>
+<p>修改ONBOOT为yes：自动启用网络连接   NO：代表关闭</p>
+<p>DNS可以设置多个，在DNS后面加数字依次排序，</p>
+<p>GATEWAY设置网关 必须和IP地址同一网段</p>
+<p>PEERDNS：是否接受DHCP服务其指定的DNS的地址</p>
+<p><img src="https://s2.ax1x.com/2019/08/04/eyxiWQ.png" alt="eyxiWQ.png"></p>
+<p>systemctl  restart  network：重启网络</p>
+<p>常用命令</p>
+<p>systemctl  start  服务名      立即开启</p>
+<p>systemctl  stop  服务名      立即关闭</p>
+<p>systemctl  restart  服务名    重启服务</p>
+<p>systemctl  status  服务名    输出运行状态</p>
+<p>systemctl  is-enabled  服务名  检查是否配置为自动自启</p>
+<p>systemctl  enable  服务名    开机自动启动</p>
+<p>systemctl  disable  服务名    取消开机自动启动</p>
+
         </div>
       </div>
     </div>

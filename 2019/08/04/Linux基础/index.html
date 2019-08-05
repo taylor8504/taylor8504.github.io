@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Linux基础">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Taylor">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Taylor" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Taylor</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Linux基础</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-04</span>
+            <span class="time">22:33:06</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="Linux系统命令"><a href="#Linux系统命令" class="headerlink" title="Linux系统命令"></a><strong>Linux系统命令</strong></h2><h3 id="Linux用户与用户组"><a href="#Linux用户与用户组" class="headerlink" title="Linux用户与用户组"></a><strong>Linux用户与用户组</strong></h3><p><strong>用户：</strong> <strong>useradd admin</strong>     新建用户admin</p>
+<ul>
+<li><strong>-c</strong> comment 指定一段注释性描述。</li>
+<li><strong>-d</strong> 目录 指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录。</li>
+<li><strong>-g</strong> 用户组 指定用户所属的用户组。</li>
+<li><strong>-G</strong> 用户组，用户组 指定用户所属的附加组。</li>
+<li><strong>-s</strong> Shell文件 指定用户的登录Shell。</li>
+<li><strong>-u</strong> 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号。</li>
+</ul>
+<p><strong>passwd</strong>      修改用户密码</p>
+<p><strong>su</strong>  切换用户</p>
+<p><strong>userdel</strong>    删除用户     <strong>-r  -f</strong>  强制删除</p>
+<hr>
+<p>Linux系统中的每个用户都在/etc/passwd文件中有一个对应的记录行，它记录了这个用户的一些基本属性。</p>
+<p>/etc/passwd中一行记录对应着一个用户，每行记录又被冒号(:)分隔为7个字段，其格式和具体含义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell</span><br></pre></td></tr></table></figure>
+
+<p>uid<strong>用户标识符</strong>在centos 7 中 1-999为虚拟用户，无登录权限，一般用于满足文件和服务启动的需要而创 建的傀儡账户；普通用户1000起，超级用户是0</p>
+<p>centos 6中超级用户0，普通用户500起，虚拟用户1-499</p>
+<h3 id="“主目录”，也就是用户的起始工作目录"><a href="#“主目录”，也就是用户的起始工作目录" class="headerlink" title="“主目录”，也就是用户的起始工作目录"></a>“主目录”，也就是用户的起始工作目录</h3><h3 id="用户登录后，要启动一个进程，负责将用户的操作传给内核，这个进程是用户登录到系统后运行的命令解释器或某个特定的程序，即Shell。"><a href="#用户登录后，要启动一个进程，负责将用户的操作传给内核，这个进程是用户登录到系统后运行的命令解释器或某个特定的程序，即Shell。" class="headerlink" title="用户登录后，要启动一个进程，负责将用户的操作传给内核，这个进程是用户登录到系统后运行的命令解释器或某个特定的程序，即Shell。"></a>用户登录后，要启动一个进程，负责将用户的操作传给内核，这个进程是用户登录到系统后运行的命令解释器或某个特定的程序，即<strong>Shell</strong>。</h3><p>由于/etc/passwd文件是所有用户都可读的，如果用户的密码太简单或规律比较明显的话，一台普通的计算机就能够很容易地将它破解，因此对安全性要求较高的Linux系统都把加密后的口令字分离出来，单独存放在一个文件中，这个文件是<strong>/etc/shadow</strong>文件。 有超级用户才拥有该文件读权限，这就保证了用户密码的安全性。</p>
+<p><strong>/etc/shadow中的记录行与/etc/passwd中的一一对应，它由pwconv命令根据/etc/passwd中的数据自动产生</strong></p>
+<p>它的文件格式与/etc/passwd类似，由若干个字段组成，字段之间用”:”隔开。这些字段是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">登录名:加密口令:最后一次修改时间:最小时间间隔:最大时间间隔:警告时间:不活动时间:失效时间:标志</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>“口令”字段存放的是加密后的用户口令字，长度为13个字符。如果为空，则对应用户没有口令，登录时不需要口令；如果含有不属于集合 { ./0-9A-Za-z }中的字符，则对应的用户不能登录。</li>
+</ol>
+<h3 id="用户组的所有信息都存放在-etc-group文件中"><a href="#用户组的所有信息都存放在-etc-group文件中" class="headerlink" title="用户组的所有信息都存放在/etc/group文件中"></a><strong>用户组的所有信息都存放在/etc/group文件中</strong></h3><p>将用户分组是Linux 系统中对用户进行管理及控制访问权限的一种手段</p>
+<p>每个用户都属于某个用户组；一个组中可以有多个用户，一个用户也可以属于不同的组</p>
+<p>用户组的所有信息都存放在/etc/group文件中。此文件的格式也类似于/etc/passwd文件，由冒号(:)隔开若干个字段，这些字段有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">组名:口令:组标识号:组内用户列表</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwunconv  投影密码    pwunconv  关闭投影密码</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a><strong>用户组</strong></h2><p> 一个用户可以拥有多个组</p>
+<p>一组里可以有多个用户</p>
+<p>一个用户只有属于这个组后，才可以操作属于这和组的内容</p>
+<p>root拥有整个系统的权限</p>
+<p><strong>groupadd</strong>   新建用户组</p>
+<p><strong>groupdel</strong>   删除用户组</p>
+<p><strong>groupmod</strong>   修改用户所组     <strong>-g</strong>&lt;群组识别码&gt; 设置要使用的群组识别码</p>
+<p><strong>-o</strong> 重复使用组织识别码</p>
+<p><strong>-n</strong> &lt;新群组名称&gt; 设置要使用的群组名称</p>
+<p><strong>usermod</strong> 修改用户所属组   <strong>-g</strong> 修改用户所属的群组</p>
+<p><strong>-G</strong>  修改用户所属的附加群组</p>
+<p><strong>-I</strong>  修改名称     <strong>-L</strong>  修改用户登录后所使用的shell</p>
+<h3 id="Linux权限"><a href="#Linux权限" class="headerlink" title="Linux权限"></a><strong>Linux权限</strong></h3><p>几种文件类型</p>
+<ul>
+<li>当为[ <strong>d</strong> ]则是目录</li>
+<li>当为[ <strong>-</strong> ]则是文件；</li>
+<li>若是[ <strong>l</strong> ]则表示为链接文档(link file)；</li>
+<li>若是[ <strong>b</strong> ]则表示为装置文件里面的可供储存的接口设备(可随机存取装置)；</li>
+<li>若是[ <strong>c</strong> ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)</li>
+</ul>
+<p>接下来的字符中，以三个为一组，且均为『rwx』 的三个参数的组合。其中，[ r ]代表可读(read)、[ w ]代表可写(write)、[ x ]代表可执行(execute)。 要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现减号[ - ]而已。</p>
+<p>从左至右用0-9这些数字来表示  1/2/3 属主权限4/5/6 属组权限7/8/9 其他用户</p>
+<p><strong>chgrp -R</strong>   更改文件属组</p>
+<p><strong>chown -R</strong>   更改文件属主，也可以更改文件所主</p>
+<p><strong>chomd -R **   更改文件的9个属性   一种数字 一种符号  **r=4  w=2  x=1</strong></p>
+<p>还有一个改变权限的方法，从之前的介绍中我们可以发现，基本上就九个权限分别是：</p>
+<ul>
+<li>(1)user</li>
+<li>(2)group</li>
+<li>(3)others</li>
+</ul>
+<p>那么我们就可以使用 <strong>u, g, o</strong> 来代表三种身份的权限！</p>
+<p>此外， <strong>a</strong> 则代表 <strong>all</strong>，即全部的身份。读写的权限可以写成 <strong>r, w, x</strong>，也就是可以使用下表的方式来看</p>
+<p>如果我们需要将文件权限设置为 <strong>-rwxr-xr–</strong> ，可以使用 <strong>chmod u=rwx,g=rx,o=r 文件名</strong> 来设定</p>
+<p>一个网站最合理的权限是755</p>
+<hr>
+<h2 id="系统任务命令"><a href="#系统任务命令" class="headerlink" title="系统任务命令"></a><strong>系统任务命令</strong></h2><p><strong>&amp;</strong>  这个用在一个命令的最后，可以把这个命令放到后台执行</p>
+<p><strong>ctrl + z</strong>      可以将一个正在前台执行的命令挂起</p>
+<p><strong>ctrl+c</strong>     前台进程的终止</p>
+<p><strong>jobs</strong>        查看当前有多少在后台运行的命令</p>
+<p>jobs命令执行的结果，<strong>＋（加号）</strong>表示是一个当前的作业，<strong>- （减号）</strong>表示是一个当前作业之后的一个作业，jobs -l选项可显示所有任务的PID.</p>
+<p><strong>fg</strong>     将后台中的命令调至前台继续运行</p>
+<p>如果后台中有多个命令，可以用 <strong>fg %jobnumber</strong>将选中的命令调出，<strong>%jobnumber</strong>是通过jobs命令查到的后台正在执行的命令的序号(不是pid)</p>
+<p>*<em>bg *</em>    将一个在后台暂停的命令，变成继续执行</p>
+<p>   通过<strong>bg %num</strong> 即可将挂起的job的状态由stopped改为running，仍在后台执行；当需要改为在前台执行时，执行命令<strong>fg %num</strong>即可</p>
+<p>下列命令可以用来操纵进程任务：</p>
+<p><strong>ps</strong>   列出系统中正在运行的进程；</p>
+<p><strong>kill</strong>    发送信号给一个或多个进程（经常用来杀死一个进程）；</p>
+<p><strong>jobs</strong>    列出当前shell环境中已启动的任务状态，若未指定jobsid，则显示所有活动的任务状态信息</p>
+<h2 id="Vim编辑器"><a href="#Vim编辑器" class="headerlink" title="Vim编辑器"></a>Vim编辑器</h2><p>基本上 vi/vim 共分为三种模式，分别是<strong>命令模式（Command mode）</strong>，<strong>输入模式（Insert mode）</strong>和<strong>底线命令模式（Last line mode）</strong></p>
+<p><strong>命令模式常用命令</strong>：<strong>i</strong>    切换到输入模式，以输入字符</p>
+<p><strong>:</strong>      切换到底线命令模式，以在最底一行输入命令</p>
+<p><strong>x,X</strong>   在一行字中，x为向后删除一个字符，X为向前删除一个字符</p>
+<p><strong>dd</strong>    删除游标所在的一整行字符</p>
+<p><strong>ndd</strong>   n为数字   删除光标所在的向下n行</p>
+<p><strong>yy</strong>    复制光标坐在一整行字符</p>
+<p><strong>p，P</strong>  p为将已复制的字符粘贴在光标下一行，P则粘贴在上一行</p>
+<p><strong>u</strong>    重复前一个动作</p>
+<p><strong>输出模式命令</strong>：</p>
+<p><strong>i</strong> 进入输出模式</p>
+<p><strong>esc</strong>  退出输出模式，切换到命令模式</p>
+<h3 id="底线命令模式：命令模式下-‘’-’’"><a href="#底线命令模式：命令模式下-‘’-’’" class="headerlink" title="底线命令模式：命令模式下   ‘’:’’"></a>底线命令模式：命令模式下   ‘’:’’</h3><ul>
+<li>q 退出程序</li>
+<li>w 保存文件</li>
+</ul>
+<p><strong>set nu</strong>  设置行号</p>
+<p><strong>set nonu</strong> 取消行号</p>
+<p><strong>wq!</strong>  强制保存退出</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
