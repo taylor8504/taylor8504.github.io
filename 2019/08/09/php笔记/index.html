@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="php笔记">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Taylor">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Taylor" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Taylor</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">php笔记</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-08-09</span>
+            <span class="time">22:36:19</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p><strong>PHP</strong>（全称：PHP：Hypertext Preprocessor，即”PHP：超文本预处理器”）是一种通用开源脚本语言。</p>
+<h2 id="php-基本语法"><a href="#php-基本语法" class="headerlink" title="php  基本语法"></a><strong>php  基本语法</strong></h2><p>php脚本以<strong>&lt;?php</strong> 开始，以 <strong>？&gt;</strong>结束</p>
+<p>PHP文件默认拓展名为”<strong>.php</strong>“</p>
+<p>PHP 中两种在浏览器输出文本的基础指令：<strong>echo、print</strong></p>
+<p>（echo可以输出一个或多个字符串，print只能输出一个字符串返回值总为1。）</p>
+<p>PHP中单行注释 <strong>// 注释内容</strong>  多行注释 <strong>/* 注释内容*/</strong></p>
+<h2 id="php变量"><a href="#php变量" class="headerlink" title="php变量"></a><strong>php变量</strong></h2><p>变量是用于存储信息的容器 </p>
+<ul>
+<li><p>以<strong>$</strong>开始，后跟变量名称。 </p>
+</li>
+<li><p>变量名必须以字母或者下划线字符开始。 </p>
+</li>
+<li><p>变量名只能包含字母数字字符以及下划线，不能包含空格。 </p>
+</li>
+<li><p>变量名区分大小写。</p>
+</li>
+</ul>
+<h3 id="PHP四种不同的变量作用域："><a href="#PHP四种不同的变量作用域：" class="headerlink" title="PHP四种不同的变量作用域："></a><strong>PHP四种不同的变量作用域：</strong></h3><p><strong>local    global   static    parameter</strong></p>
+<ul>
+<li><p>全局变量和局部变量 </p>
+<p>在函数外定义的变量为全局变量，它的作用域从定义处一直到文件结尾。 </p>
+<p>函数内定义的为局部变量，它的作用域为函数定义范围内。 </p>
+<p>函数之间作用域互不影响。 </p>
+<p>想要在局部访问全局变量需要在变量前加 global 关键字。 </p>
+</li>
+<li><p>Static作用域 </p>
+<p>一般一个函数完成时，他的所有变量通常会被删除，如果希望摸个局部变量不被删除，只需 要在第一次声明变量时使用static关键字。每次调用该函数时，变量会保留着前一次被调用时的值。 </p>
+</li>
+<li><p>参数作用域 </p>
+<p>通过调用代码将值传递给函数的局部变量</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">function myTest($x) </span><br><span class="line">&#123; </span><br><span class="line">	echo $x; </span><br><span class="line">&#125;</span><br><span class="line">myTest(5); </span><br><span class="line">?&gt;			 //结果输出为5</span><br></pre></td></tr></table></figure>
+
+<h3 id="PHP变量类型："><a href="#PHP变量类型：" class="headerlink" title="PHP变量类型："></a><strong>PHP变量类型：</strong></h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>整型 integer</td>
+<td>正数 0 负数</td>
+</tr>
+<tr>
+<td>浮点型 flfloat</td>
+<td>小数</td>
+</tr>
+<tr>
+<td>字符串 string</td>
+<td>“ 123” ‘123’ &lt;&lt;&lt;EOF 123 EOF（之间无需转译，）</td>
+</tr>
+<tr>
+<td>资源类型</td>
+<td>STDIN(键盘输入) STDOUT(屏幕输出) 打开的文件/网络</td>
+</tr>
+<tr>
+<td>数组 array</td>
+<td>[1,2,3,4,”name”,1.33] 括号中可以放任何类型的符号</td>
+</tr>
+<tr>
+<td>对象 object</td>
+<td>new person()</td>
+</tr>
+<tr>
+<td>空</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>布尔</td>
+<td>true false</td>
+</tr>
+</tbody></table>
+<p><strong>EOF结束标识必须顶格独自占一行(即必须从行首开始，前后不能衔接任何空白和字符)</strong></p>
+<p><strong>PHP常量</strong></p>
+<p>PHP中常量一旦赋值不会改变，尽量使用大写。 </p>
+<p>常量分为系统常量和自定义常量，使用<strong>defifine()</strong>定义常量，使用常量不用加$。 </p>
+<p>常量是全局变量。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define (string $name,mixed $value[, bool $case_insensitive = false ] ) name和value作为常量名称和值是必选的，cass_insensitive是可选的，表示常量大小写是否敏 感，默认大小写敏感，设置为TURE则为不敏感。</span><br></pre></td></tr></table></figure>
+
+<h3 id="预定义常量"><a href="#预定义常量" class="headerlink" title="预定义常量"></a><strong>预定义常量</strong></h3><table>
+<thead>
+<tr>
+<th><em>FILE</em></th>
+<th>查看当前文件绝对路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>DIR</em></td>
+<td>查看当前文件所在文件夹</td>
+</tr>
+<tr>
+<td><em>LINE</em></td>
+<td>查看当前代码所在行数</td>
+</tr>
+<tr>
+<td>PHP_OS</td>
+<td>查看操作系统信息</td>
+</tr>
+<tr>
+<td>PHP_VERSION</td>
+<td>查看PHP版本信息</td>
+</tr>
+<tr>
+<td>echo strlen(“输出引号中字符串的长度”)</td>
+<td></td>
+</tr>
+<tr>
+<td>$_SERVER[‘HTTP_USER_AGENT’]</td>
+<td>查看浏览器信息</td>
+</tr>
+</tbody></table>
+<h2 id="PHP-条件语句"><a href="#PHP-条件语句" class="headerlink" title="PHP 条件语句"></a><strong>PHP 条件语句</strong></h2><p>条件语句用于根据不同条件执行不同动作</p>
+<h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a><strong>if语句</strong></h3><p>用于指定条件成立时执行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (条件)</span><br><span class="line">&#123;</span><br><span class="line">    条件成立时要执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="if…else-语句"><a href="#if…else-语句" class="headerlink" title="if…else 语句"></a><strong>if…else 语句</strong></h3><p><strong>在条件成立时执行一块代码，条件不成立时执行另一块代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if (条件)</span><br><span class="line">&#123;</span><br><span class="line">条件成立时执行的代码;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">条件不成立时执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="if…elseif…-else-语句"><a href="#if…elseif…-else-语句" class="headerlink" title="if…elseif….else 语句"></a><strong>if…elseif….else 语句</strong></h3><p><strong>在若干条件之一成立时执行一个代码块</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if (条件)</span><br><span class="line">&#123;</span><br><span class="line">    if 条件成立时执行的代码;</span><br><span class="line">&#125;</span><br><span class="line">elseif (条件)</span><br><span class="line">&#123;</span><br><span class="line">    elseif 条件成立时执行的代码;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    条件不成立时执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Switch-语句"><a href="#Switch-语句" class="headerlink" title="Switch 语句"></a><strong>Switch 语句</strong></h3><p><strong>有选择地执行若干代码块之一</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">switch (n)</span><br><span class="line">&#123;</span><br><span class="line">case label1:</span><br><span class="line">    如果 n=label1，此处代码将执行;</span><br><span class="line">    break;</span><br><span class="line">case label2:</span><br><span class="line">    如果 n=label2，此处代码将执行;</span><br><span class="line">    break;</span><br><span class="line">default:</span><br><span class="line">    如果 n 既不等于 label1 也不等于 label2，此处代码将执行;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="php-循环"><a href="#php-循环" class="headerlink" title="php   循环"></a><strong>php   循环</strong></h2><p>在编写代码时，如果需要让相同的代码一次有一次重复运行，可以在代码中使用循环语句完成代码</p>
+<h3 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a><strong>while 循环</strong></h3><p>while 循环将重复执行代码块，直到指定的条件不成立</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while (条件)</span><br><span class="line">&#123;</span><br><span class="line">    要执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="do…while-语句"><a href="#do…while-语句" class="headerlink" title="do…while 语句"></a><strong>do…while 语句</strong></h3><p>do..while 语句会至少执行一次代码，然后检查条件，只要条件成立，就会重复进行循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">    要执行的代码;</span><br><span class="line">&#125;</span><br><span class="line">while (条件);</span><br></pre></td></tr></table></figure>
+
+<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a><strong>for 循环</strong></h3><p>for 循环用于您预先知道脚本需要运行的次数的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (初始值; 条件; 增量)</span><br><span class="line">&#123;</span><br><span class="line">    要执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li><strong>初始值</strong>：主要是初始化一个变量值，用于设置一个计数器（但可以是任何在循环的开始被执行一次的代码）。</li>
+<li><strong>条件</strong>：循环执行的限制条件。如果为 TRUE，则循环继续。如果为 FALSE，则循环结束。</li>
+<li><strong>增量</strong>：主要用于递增计数器</li>
+</ul>
+<h3 id="foreach-循环"><a href="#foreach-循环" class="headerlink" title="foreach 循环"></a><strong>foreach 循环</strong></h3><p>主要用于遍历数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ($array as $value)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每进行一次循环，当前数组元素的值就会被赋值给 $value 变量（数组指针会逐一地移动），在进行下一次循环时，您将看到数组中的下一个值。</p>
+<h2 id="PHP-函数"><a href="#PHP-函数" class="headerlink" title="PHP 函数"></a>PHP 函数</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
